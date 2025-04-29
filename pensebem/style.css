@@ -1,0 +1,517 @@
+:root {
+    --vermelho-texto: #FF3B30;
+    --vermelho-opcao: #ff0000;
+    --amarelo-opcao: #ffee00;
+    --azul-opcao: #0400ff;
+    --verde-opcao: #09ff00;
+    --cor-primaria: #0f1c70;
+    --cor-secundaria: #e4dc16;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'comicbook', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--cor-primaria);
+}
+
+#login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(15, 28, 112, 0.9);
+    z-index: 1000;
+}
+
+.loginContainer {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+#logo img {
+    width: 120px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+#loginInput {
+    margin: 1rem 0;
+}
+
+#loginInput p {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+#loginInput input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#loginInput sub {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.loginBtn {
+    margin-top: 1.5rem;
+}
+
+#loginEnter {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#loginEnter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#game {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#logoHeaderText {
+    font-family: 'Bangers', sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#logoHeaderText sub {
+    font-size: 1rem;
+}
+
+.navHeader {
+    display: flex;
+    gap: 1rem;
+}
+
+.navHeader button {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.navHeader img {
+    width: 30px;
+    height: 30px;
+}
+
+section {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+#gameScreen {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+#gameControls {
+    align-self: center;
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#gameStatus {
+    margin-bottom: 1.5rem;
+}
+
+#gameStatus p {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+}
+
+#jogadorAtual {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.5rem;
+    color: var(--vermelho-texto);
+    text-shadow: 2px 1px 10px var(--cor-secundaria);
+}
+
+#livroAtual, #questaoAtual {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--cor-secundaria);
+    text-shadow: 2px 1px 5px black;
+}
+
+#vidas {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+#vidas img {
+    width: 30px;
+    height: 30px;
+}
+
+#opcao {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.opcaoBtn {
+    padding: 1.5rem 0;
+    border-radius: 10px;
+    font-family: 'comicbook', sans-serif;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.opcaoBtn:active {
+    transform: translateY(5px);
+}
+
+#btna { background-color: var(--vermelho-opcao); }
+#btnb { background-color: var(--amarelo-opcao); }
+#btnc { background-color: var(--azul-opcao); }
+#btnd { background-color: var(--verde-opcao); }
+
+#teclado {
+    background-color: black;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#tecladoOpcoes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#tecladoOpcoes button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'comicbook', sans-serif;
+}
+
+#tecladoTeclas {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.tecla {
+    width: 30px;
+    height: 80px;
+    border-radius: 0 0 5px 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#gameDisplay {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#gameDisplay iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#gameOverScreen, #leaderboardScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+#gameOverContainer {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+#gameOverText {
+    font-family: 'Bangers', sans-serif;
+    font-size: 4rem;
+    color: red;
+    text-shadow: 3px 3px 3px black;
+    margin-bottom: 1.5rem;
+}
+
+#gameOverContainer p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+#gameOverOptions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#gameOverReset, #gameOverLogin {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid #333;
+    background-color: white;
+    font-family: 'comicbook', sans-serif;
+}
+
+#gameOverReset:hover, #gameOverLogin:hover {
+    background-color: #f0f0f0;
+}
+
+#leaderboardContainer {
+    background: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#leaderboardContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+#leaderboardContent th, #leaderboardContent td {
+    padding: 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#leaderboardContent th {
+    background-color: #f5f5f5;
+}
+
+.current-player {
+    background-color: rgba(255, 255, 0, 0.3);
+    font-weight: bold;
+}
+
+#leaderboardOptions {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#leaderboardBack {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'comicbook', sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    color: white;
+}
+
+@keyframes tremer {
+    0% { transform: translateX(0) rotate(0); }
+    20% { transform: translateX(-5px) rotate(-5deg); }
+    40% { transform: translateX(5px) rotate(5deg); }
+    60% { transform: translateX(-5px) rotate(-5deg); }
+    80% { transform: translateX(5px) rotate(5deg); }
+    100% { transform: translateX(0) rotate(0); }
+}
+
+@media (max-width: 1024px) {
+    #gameScreen {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #gameControls {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 1.5rem;
+    }
+
+    #gameDisplay {
+        height: 500px;
+    }
+
+    #opcao {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .opcaoBtn {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #logoHeaderText {
+        font-size: 2rem;
+    }
+
+    #gameControls {
+        padding: 1rem;
+    }
+
+    #tecladoTeclas {
+        flex-wrap: wrap;
+    }
+
+    .tecla {
+        width: 25px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .loginContainer {
+        padding: 1.5rem;
+    }
+
+    #logo img {
+        width: 100px;
+    }
+
+    #opcao {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #gameOverText {
+        font-size: 3rem;
+    }
+
+    #gameOverOptions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #leaderboardContent th, #leaderboardContent td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-height: 700px) {
+    #gameScreen {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #gameControls {
+        flex: 0 0 auto;
+    }
+
+    #gameDisplay {
+        height: 300px;
+    }
+}

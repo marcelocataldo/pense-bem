@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pense Bem 2.0</title>
+    <link rel="icon" href="img/Tectoy_Logo.png">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"> <!--font-family: "Bangers", system-ui;-->
+</head>
+
+<body>
+
+    <div id="login">
+
+        <div class="loginContainer">
+
+            <div id="logo"><img src="img/Tectoy_Logo.png" alt=""></div>
+
+            <div id="loginInput">
+
+                <p>Digite seu nome:</p>
+                <input type="text" id="jogadorCad" maxlength="10">
+
+                <p>Código do livro:</p>
+                <input type="number" id="livroCad">
+                <p><sub>Livro: Fórmula 1<br>(Códigos disponíveis: <br> 011, 012 e 013)
+                </sub></p>
+
+            </div>
+
+            <div class="loginBtn">
+
+                <button id="loginEnter">Entrar</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="game">
+
+        <header>
+
+            <div class="containerHeader">
+
+                <div id="logoHeader">
+                    <h1 id="logoHeaderText">Pense Bem! <sub>2.0</sub></h1>
+                </div>
+
+                <div class="navHeader">
+                    <button id="resetBtn"><img src="img/reset.svg" alt=""></button>
+                    <button id="leaderboardBtn"><img src="img/leaderboard.svg" alt=""></button>
+
+                </div>
+            </div>
+
+        </header>
+
+        <section>
+
+            <div id="gameScreen">
+
+                <div id="gameControls">
+
+                    <div id="gameStatus">
+        
+                        <p>Bem vindo(a) <output id="jogadorAtual">XXxXxXxXx</output>, bom jogo!</p>
+                        <p>Jogando Livro: <output id="livroAtual">000</output></p>
+                        <p>Questão: <output id="questaoAtual">000</output></p>
+                        <div id="vidas">
+                            <img src="img/heart.png" alt="" class="coracao">
+                            <img src="img/heart.png" alt="" class="coracao">
+                            <img src="img/heart.png" alt="" class="coracao">
+                        </div>
+            
+                    </div>
+            
+                    <div id="opcao">
+            
+                        <button class="opcaoBtn" id="btna">A</button>
+                        <button class="opcaoBtn" id="btnb">B</button>
+                        <button class="opcaoBtn" id="btnc">C</button>
+                        <button class="opcaoBtn" id="btnd">D</button>
+            
+                    </div>
+            
+                    <div id="teclado">
+
+                        <div id="tecladoOpcoes">
+
+                            <button id="gravar">Gravar</button>
+                            <button id="reproduzir">Reproduzir</button>
+
+                        </div>
+
+                        <div id="tecladoTeclas">
+                            <button class="tecla" id="do">C4</button>
+                            <button class="tecla" id="re">D4</button>
+                            <button class="tecla" id="mi">E4</button>
+                            <button class="tecla" id="fa">F4</button>
+                            <button class="tecla" id="sol">G4</button>
+                            <button class="tecla" id="la">A4</button>
+                            <button class="tecla" id="si">B4</button>
+                            <button class="tecla" id="doM">C5</button>
+                            <button class="tecla" id="reM">D5</button>
+
+                        </div>
+
+                    </div>
+        
+                </div>
+        
+                <div id="gameDisplay">
+        
+                    <iframe src="pense_bem_-_formula_1.pdf#toolbar=0&#zoom=100" frameborder="0"></iframe>
+        
+                </div>
+
+            </div>
+
+            <div id="gameOverScreen">
+
+                <div id="gameOverContainer">
+
+                    <h1 id="gameOverText">GAME OVER</h1>
+
+                    <p>Você respondeu <output id="progressoQuest"></output> de <output id="totalPerguntas"></output> perguntas.</p>
+                    <br>
+                    <p>Dessas, você acertou <output id="acertos"></output></p>
+                    <p>Questões que você errou: <output id="questsErrada"></output></p>
+
+                    <div id="gameOverOptions">
+                        <button id="gameOverReset">Jogar Novamente</button>
+                        <button id="gameOverLogin">Logout</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <div id="leaderboardScreen">
+            <div id="leaderboardContainer">
+                <h2>Placar de Líderes</h2>
+                <div id="leaderboardContent">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Jogador</th>
+                                <th>Acertos</th>
+                                <th>Total</th>
+                                <th>Livro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardEntries">
+                            <!-- Entradas serão preenchidas via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="leaderboardOptions">
+                    <button id="leaderboardBack">Voltar ao Jogo</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; Marcelo Cataldo. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <canvas class="bg" style="height: 100%; width: 100%;"></canvas>
+
+    <audio id="sound-login" src="sounds/start.mp3" preload="auto"></audio>
+    <audio id="sound-acerto" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="sound-erro" src="sounds/wrong.mp3" preload="auto"></audio>
+    <audio id="sound-gameover" src="sounds/game-over.mp3" preload="auto"></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+
+    <script type="module" src="script/index.js"></script>
+
+</body>
+
+</html>

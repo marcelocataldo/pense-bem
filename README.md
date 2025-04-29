@@ -1,4 +1,5 @@
 # pense-bem
+Atenção: arquivo do livro não foi carregado devido ao limite de tamanho de upload do github, emplementarei um link para substituir em breve.
 Funcionalidades:
 - Tela inicial:
   - Solicitação do nome do jogador.
